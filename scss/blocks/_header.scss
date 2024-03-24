@@ -1,8 +1,15 @@
 .header {
   position: fixed;
+  z-index: 150;
   top: 0;
   left: 0;
   right: 0;
+  transition: .3s ease;
+
+  &._scrolled {
+    background-color: rgba(37, 37, 50, 0.7);
+    backdrop-filter: blur(10px);
+  }
 
   &__container {
     display: flex;
@@ -11,6 +18,12 @@
     padding-top: 31px;
     padding-bottom: 31px;
     gap: 20px;
+    transition: .3s ease;
+  }
+
+  &._scrolled &__container {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .logo {

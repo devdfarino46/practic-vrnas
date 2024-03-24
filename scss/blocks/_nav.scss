@@ -1,6 +1,5 @@
 .nav {
 
-
   &__list {
     position: relative;
     z-index: 151;
@@ -119,10 +118,13 @@
   }
 
   @media (max-width: 650px) {
-    background-color: var(--color-grey-50);
+    background-color: rgba(37, 37, 50, 0.9);
     position: fixed;
     overflow-x: auto;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 150;
     transform: translateX(-100%);
     transition: .3s ease;

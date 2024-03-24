@@ -8,8 +8,8 @@ navItems.forEach(navItem => {
   
     btn.addEventListener('click', ev => {
       navItem.classList.toggle('_opened');
-      const subItemsHeight = subItems.clientHeight;
 
+      const subItemsHeight = subItems.clientHeight;
       if (navItem.classList.contains('_opened') && window.innerWidth <= 650) {
         navItem.style.marginBottom = '147px';
       } else {
@@ -28,6 +28,15 @@ if (header) {
     menuBtn.addEventListener('click', ev => {
       menuBtn.classList.toggle('_opened');
       nav.classList.toggle('_opened');
+      document.body.classList.toggle('no-scroll');
     });
   }
+
+  window.addEventListener('scroll', ev => {
+    if (window.scrollY >= 10) {
+      header.classList.add('_scrolled');
+    } else {
+      header.classList.remove('_scrolled');
+    }
+  });
 }
