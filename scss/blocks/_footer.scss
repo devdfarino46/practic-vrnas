@@ -1,0 +1,147 @@
+.footer {
+  margin-top: clamp(5.75rem, 7.145rem + -4.06vw, 4rem);
+
+  &__container {
+  }
+
+  &__top {
+    padding-top: clamp(0.063rem, -5.617rem + 16.52vw, 7.188rem);
+    padding-bottom: clamp(3rem, 3.747rem + -2.17vw, 2.063rem);
+    display: flex;
+    gap: 56px;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    border-image: var(--color-linear) 1;
+
+    @media (max-width: 980px) {
+      flex-direction: column;
+    }
+  }
+
+  &__actions {
+    flex: 0 1 35%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 980px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 420px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 139px;
+
+    @media (max-width: 980px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__social {
+  }
+
+  &__content {
+    flex: 0 1 65%;
+  }
+
+  &__bottom {
+    padding-top: 32px;
+    padding-bottom: clamp(1.313rem, 0.366rem + 2.75vw, 2.5rem);
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    color: var(--color-grey-1);
+  }
+}
+
+.social {
+
+  &__list {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__item {
+    border: 1px solid transparent;
+    background: 
+      linear-gradient(var(--color-grey-100), var(--color-grey-100)) padding-box,
+      var(--color-linear) border-box;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: .1s ease;
+
+    a {
+      transition: .3s ease;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-width: 3px;
+      }
+
+      &:hover a {
+        color: transparent;
+        background: var(--color-linear);
+        background-clip: text;
+      }
+    }
+  }
+}
+
+.content-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__column {
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    color: var(--color-grey-1);
+    transition: .3s ease;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--color-grey-white);
+      }
+    }
+  }
+
+  @media (max-width: 980px) {
+    gap: 64px 100px;
+    justify-content: flex-start;
+  }
+}
