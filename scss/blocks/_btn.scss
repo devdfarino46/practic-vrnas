@@ -32,27 +32,19 @@
   }
 
   &_outline {
-    background: 
-      var(--color-linear),
-      var(--color-linear),
-      linear-gradient(to right, var(--color-2), var(--color-2)),
-      linear-gradient(to right, var(--color-1), var(--color-1));
-
-    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
-    background-position: top left, bottom left, left top, right top;
-    background-repeat: no-repeat;
+    border: 1px solid;
+    border-image: var(--color-linear) 1;
+    background: #ffffff0f;
 
     &::before {
       background-image: var(--color-linear);
       filter: none;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      background-color: rgba(255, 255, 255, 0.06);
+    @media (any-hover: hover) {
+      &:hover::before {
+        opacity: 1;
+      }
     }
   }
 }
