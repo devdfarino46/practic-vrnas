@@ -1,0 +1,137 @@
+.nav {
+
+
+  &__list {
+    position: relative;
+    z-index: 151;
+    display: flex;
+    gap: clamp(0.938rem, -5.737rem + 12.56vw, 4rem);
+    row-gap: 20px;
+    align-items: center;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__item {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 28px;
+
+    &._rel {
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: .3s ease;
+    }
+
+    a {
+      transition: .3s ease;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #FFF;
+        }
+      }
+    }
+
+    @media (max-width: 650px) {
+      font-size: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__item._opened &__subitems {
+    transform: scaleY(1);
+  }
+
+  &__item._opened &__item-btn {
+    transform: scaleY(-1);
+  }
+
+  &__item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '\e800';
+    font-family: 'fontello';
+    font-size: 4px;
+    margin-inline-start: 7px;
+    margin-block-start: 4px;
+    width: 12px;
+    height: 12px;
+    transition: .3s ease;
+
+    @media (max-width: 650px) {
+      font-size: 10px;
+    }
+  }
+
+  &__subitems {
+    background-image: var(--color-grey-linear);
+    padding: 10px 15px;
+    position: absolute;
+    top: 100%; left: -10px;
+    margin-top: 5px;
+    width: 200px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .3s ease;
+    transform: scaleY(0);
+    transform-origin: top;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background-color: var(--color-grey-50);
+    }
+
+    @media (max-width: 650px) {
+      right: -10px;
+      width: auto;
+    }
+  }
+
+  &__subitem {
+    position: relative;
+    z-index: 2;
+    height: max-content;
+  }
+
+  &__contact-us-btn {
+    position: relative;
+    z-index: 151;
+    display: none;
+    margin-top: 30px;
+    width: 100%;
+
+    @media (max-width: 410px) {
+      display: block;
+    }
+  }
+
+  @media (max-width: 650px) {
+    background-color: var(--color-grey-50);
+    position: fixed;
+    overflow-x: auto;
+    inset: 0;
+    z-index: 150;
+    transform: translateX(-100%);
+    transition: .3s ease;
+
+    padding: 20px;
+    padding-top: 110px;
+
+    &._opened {
+      transform: translateX(0);
+    }
+  }
+}

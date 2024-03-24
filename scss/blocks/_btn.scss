@@ -1,0 +1,58 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 18px 38px;
+  background-image: var(--color-linear);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background-image: var(--color-linear);
+    transition: .3s ease;
+    filter: blur(20px);
+    opacity: 0;
+  }
+
+  span, i {
+    position: relative;
+    z-index: 3;
+  }
+
+  @media (any-hover: hover) {
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  &_outline {
+    background: 
+      var(--color-linear),
+      var(--color-linear),
+      linear-gradient(to right, var(--color-2), var(--color-2)),
+      linear-gradient(to right, var(--color-1), var(--color-1));
+
+    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
+    background-position: top left, bottom left, left top, right top;
+    background-repeat: no-repeat;
+
+    &::before {
+      background-image: var(--color-linear);
+      filter: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
