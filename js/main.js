@@ -1,12 +1,18 @@
 const navItems = document.querySelectorAll('.nav__item._rel');
 const header = document.querySelector('.header');
 
-navItems.forEach(navItem => {
+navItems.forEach((navItem, key) => {
   if (navItem) {
     const btn = navItem.querySelector('.nav__item-btn');
     const subItems = navItem.querySelector('.nav__subitems');
   
     btn.addEventListener('click', ev => {
+      navItems.forEach((navItem1, key1) => {
+        if (key1 !== key) {
+          navItem1.classList.remove('_opened');
+          navItem1.style.marginBottom = '0';
+        }
+      });
       navItem.classList.toggle('_opened');
 
       const subItemsHeight = subItems.clientHeight;
