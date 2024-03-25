@@ -1,0 +1,92 @@
+.clients {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  &__avatars {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 1px solid var(--color-grey-100);
+      margin-left: -12px;
+
+      &:first-child {margin-left: 0;}
+    }
+  }
+
+  &__text {
+    position: relative;
+
+    ._strong {
+      display: inline-block;
+      position: relative;
+      font-weight: 600;
+      color: white;
+
+      &::before {
+        display: block;
+        line-height: 7px;
+        content: url(../img/bg/underline.svg);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 2px;
+      }
+    }
+  }
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  color: var(--color-grey-2);
+}
+
+.video {
+  position: relative;
+  display: flex;
+  width: 196px;
+  height: 128px;
+  overflow: hidden;
+
+  img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .3s ease;
+  }
+
+  &::after {
+    display: flex;
+    font-family: fontello;
+    content: '\e809';
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (any-hover: hover) {
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+}

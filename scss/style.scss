@@ -30,8 +30,8 @@ body {
   background-color: #18181B;
   color: #FFF;
   background-image: 
-    url(../img/decor1.png),
-    url(../img/decor2.png);
+    url(../img/bg/body-top.webp),
+    url(../img/bg/body-bottom.webp);
   background-blend-mode: normal;
   background-size: 
     clamp(25.938rem, 11.241rem + 42.75vw, 44.375rem) auto,
@@ -58,3 +58,4 @@ body {
 @import 'blocks/nav';
 @import 'blocks/header';
 @import 'blocks/footer';
+@import 'blocks/hero';
