@@ -1,5 +1,6 @@
 const navItems = document.querySelectorAll('.nav__item._rel');
 const header = document.querySelector('.header');
+const cardServices = document.querySelectorAll('.card-service');
 
 navItems.forEach((navItem, key) => {
   if (navItem) {
@@ -46,3 +47,17 @@ if (header) {
     }
   });
 }
+
+cardServices.forEach(cardService => {
+  if (cardService) {
+    document.addEventListener('click', ev => {
+      // cardService.classList.add('_active');
+      const clck = ev.composedPath().includes(cardService);
+      if (clck) {
+        cardService.classList.add('_active');
+      } else {
+        cardService.classList.remove('_active');
+      }
+    })
+  }
+})
