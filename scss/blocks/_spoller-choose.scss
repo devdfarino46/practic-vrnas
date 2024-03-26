@@ -1,0 +1,50 @@
+.spoller-choose {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: .3s ease;
+  }
+
+  &__title {
+    display: flex;
+    gap: 10px;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+
+    &::after {
+      font-family: fontello;
+      content: '\e800';
+      font-size: 4px;
+      transition: .3s ease;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    transform-origin: top;
+    top: calc(100% + 12px);
+    transform: scaleY(0);
+    transition: .3s ease;
+  }
+
+  &__item._opened &__title {
+
+    &::after {
+      transform: scaleY(-1);
+    }
+  }
+
+  &__item._opened &__text {
+    transform: scaleY(1);
+  }
+}

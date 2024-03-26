@@ -1,6 +1,7 @@
 const navItems = document.querySelectorAll('.nav__item._rel');
 const header = document.querySelector('.header');
 const cardServices = document.querySelectorAll('.card-service');
+const spollerChoose = document.querySelector('.spoller-choose');
 
 navItems.forEach((navItem, key) => {
   if (navItem) {
@@ -18,7 +19,7 @@ navItems.forEach((navItem, key) => {
 
       const subItemsHeight = subItems.clientHeight;
       if (navItem.classList.contains('_opened') && window.innerWidth <= 650) {
-        navItem.style.marginBottom = '147px';
+        navItem.style.marginBottom = subItemsHeight+'px';
       } else {
         navItem.style.marginBottom = '0';
       }
@@ -61,3 +62,35 @@ cardServices.forEach(cardService => {
     })
   }
 })
+
+if (spollerChoose) {
+  const items = spollerChoose.querySelectorAll('.spoller-choose__item');
+
+  items.forEach((item, key) => {
+    const title = item.querySelector('.spoller-choose__title');
+    const text = item.querySelector('.spoller-choose__text');
+    const marginBottom = text.clientHeight;
+    
+    if (key === 0) {
+      item.classList.add('_opened');
+      item.style.marginBottom = marginBottom+'px';
+    }
+
+    title.addEventListener('click', ev => {
+      items.forEach((item1, key1) => {
+        if (key !== key1) {
+          item1.classList.remove('_opened');
+          item1.style.marginBottom = '0';
+        }
+      });
+
+      item.classList.toggle('_opened');
+
+      if (item.classList.contains('_opened')) {
+        item.style.marginBottom = marginBottom+'px';
+      } else {
+        item.style.marginBottom = '0';
+      }
+    });
+  })
+}
