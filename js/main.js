@@ -2,6 +2,7 @@ const navItems = document.querySelectorAll('.nav__item._rel');
 const header = document.querySelector('.header');
 const cardServices = document.querySelectorAll('.card-service');
 const spollerChoose = document.querySelector('.spoller-choose');
+const playerVideos = document.querySelectorAll('.player-video');
 
 navItems.forEach((navItem, key) => {
   if (navItem) {
@@ -94,3 +95,85 @@ if (spollerChoose) {
     });
   })
 }
+
+playerVideos.forEach(playerVideo => {
+  /** @type {HTMLVideoElement} */
+  const video = playerVideo.querySelector('.player-video__video');
+  const preview = playerVideo.querySelector('.player-video__preview');
+  const overlay = playerVideo.querySelector('.player-video__overlay');
+  const playBtn = playerVideo.querySelector('.player-video__play');
+  const line = playerVideo.querySelector('.player-video__line');
+  const lineBuffer = line.querySelector('._buffer');
+  const lineProgress = line.querySelector('._progress');
+
+  let startTime = 0;
+  let isHideOverlay = false;
+
+  playBtn.addEventListener('click', ev => {
+    if (video.paused || video.ended) {
+      video.play();
+      playerVideo.classList.add('_played');
+    } else {
+      video.pause();
+      playerVideo.classList.remove('_played');
+    }
+  });
+
+  playerVideo.addEventListener('click', ev => {
+    const info = playerVideo.querySelector('.player-video__info');
+    const controlls = playerVideo.querySelector('.player-video__controlls');
+
+    if (
+      !ev.composedPath().includes(info) &&
+      !ev.composedPath().includes(controlls)
+    ) {
+      if (video.currentTime != 0 && video.currentTime != video.duration) {
+        playerVideo.classList.toggle('_hide-overlay');
+
+        startTime = video.currentTime;
+        isHideOverlay = true;
+      }
+    }
+  });
+
+  video.addEventListener('timeupdate', ev => {
+    const duration = video.duration;
+    if (duration > 0) {
+      for (let i = 0; video.buffered.length; i++) {
+        if (video.buffered.start(i) < video.currentTime) {
+          lineBuffer.style.width = video.buffered.end(i) * 100 / duration + "%";
+          break;
+        }
+      }
+    }
+
+    lineProgress.style.width = video.currentTime / duration * 100 + "%";
+
+    if (video.currentTime - startTime > 2 && isHideOverlay) {
+      playerVideo.classList.add('_hide-overlay');
+      isHideOverlay = false;
+    }
+  });
+
+  video.addEventListener('play', ev => {
+    preview.classList.add('_hide');
+
+    startTime = video.currentTime;
+    isHideOverlay = true;
+  });
+
+  line.addEventListener('click', ev => {
+    let x = ev.clientX - line.getBoundingClientRect().left;
+    let width = line.getBoundingClientRect().width;
+    
+    lineProgress.style.width = x / width * 100 + "%";
+    video.currentTime = x / width * video.duration;
+  });
+
+  video.addEventListener('ended', function() {
+    preview.classList.remove('_hide');
+    playerVideo.classList.remove('_hide-overlay');
+    playerVideo.classList.remove('_played');
+  });
+
+});
