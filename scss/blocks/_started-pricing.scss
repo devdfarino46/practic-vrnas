@@ -1,0 +1,35 @@
+.started-pricing {
+  padding: 18px;
+  background-color: var(--color-grey-50);
+  border: 1px solid;
+  border-image: var(--color-linear) 1;
+  width: 321px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--color-grey-2);
+  }
+
+  &__price {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 66px;
+    margin-bottom: 14px;
+  }
+
+  &__btn {
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--color-grey-1);
+  }
+}

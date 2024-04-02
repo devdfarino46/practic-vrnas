@@ -1,5 +1,5 @@
 .testimonial {
-  margin-top: 150px;
+  margin-bottom: 100px;
 
   &__container {
     position: relative;
@@ -206,7 +206,6 @@
     @media (max-width: 1340px) {
       &:nth-child(1) {
         transform: rotate(240deg);
-        z-index: 3;
         & > * {
           transform: translate(50%, -50%) rotate(-240deg);
         }
@@ -221,7 +220,6 @@
   
       &:nth-child(3) {
         transform: rotate(100deg);
-        z-index: 2;
         & > * {
           transform: translate(50%, -50%) rotate(-100deg);
         }
@@ -229,7 +227,6 @@
   
       &:nth-child(4) {
         transform: rotate(250deg);
-        z-index: 1;
         & > * {
           transform: translate(50%, -50%) rotate(-250deg);
         }

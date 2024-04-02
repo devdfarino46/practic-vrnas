@@ -73,11 +73,6 @@ if (spollerChoose) {
     const title = item.querySelector('.spoller-choose__title');
     const text = item.querySelector('.spoller-choose__text');
     const marginBottom = text.clientHeight;
-    
-    if (key === 0) {
-      item.classList.add('_opened');
-      item.style.marginBottom = marginBottom+'px';
-    }
 
     title.addEventListener('click', ev => {
       items.forEach((item1, key1) => {

@@ -16,6 +16,10 @@
 
 		&__content {
       flex: 0 1 548px;
+
+      @media (max-width: 910px) {
+        flex: 0 1 auto;
+      }
 		}
 
 		&__title {
