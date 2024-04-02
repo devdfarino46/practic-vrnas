@@ -142,7 +142,7 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
-    background: var(--color-linear);
+    background: var(--color-grey-100);
     z-index: 1;
   }
 
@@ -159,20 +159,4 @@
   &._hide-overlay &__overlay::before {
     opacity: 0;
   }
-
-  // @media (any-hover: hover) {
-  //   &:hover &__info {
-  //     top: 0;
-  //     opacity: 1;
-  //   }
-  
-  //   &:hover &__controlls {
-  //     bottom: 0;
-  //     opacity: 1;
-  //   }
-  
-  //   &:hover &__overlay::before {
-  //     opacity: 1;
-  //   }
-  // }
 }

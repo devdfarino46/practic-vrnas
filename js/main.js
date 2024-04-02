@@ -1,8 +1,11 @@
-const navItems = document.querySelectorAll('.nav__item._rel');
-const header = document.querySelector('.header');
 const cardServices = document.querySelectorAll('.card-service');
 const spollerChoose = document.querySelector('.spoller-choose');
 const playerVideos = document.querySelectorAll('.player-video');
+const clientTestimonials = document.querySelectorAll('.client-testimonial');
+const navItems = document.querySelectorAll('.nav__item._rel');
+
+const header = document.querySelector('.header');
+const testimonial = document.querySelector('.testimonial');
 
 navItems.forEach((navItem, key) => {
   if (navItem) {
@@ -53,7 +56,6 @@ if (header) {
 cardServices.forEach(cardService => {
   if (cardService) {
     document.addEventListener('click', ev => {
-      // cardService.classList.add('_active');
       const clck = ev.composedPath().includes(cardService);
       if (clck) {
         cardService.classList.add('_active');
@@ -129,11 +131,11 @@ playerVideos.forEach(playerVideo => {
     ) {
       if (video.currentTime != 0 && video.currentTime != video.duration) {
         playerVideo.classList.toggle('_hide-overlay');
-
-        startTime = video.currentTime;
-        isHideOverlay = true;
       }
     }
+
+    startTime = video.currentTime;
+    isHideOverlay = true;
   });
 
   video.addEventListener('timeupdate', ev => {
@@ -177,3 +179,32 @@ playerVideos.forEach(playerVideo => {
   });
 
 });
+
+clientTestimonials.forEach(clientTestimonial => {
+  if (clientTestimonial) {
+    document.addEventListener('click', ev => {
+      if(ev.composedPath().includes(clientTestimonial)) {
+        clientTestimonial.classList.add('_active');
+      } else {
+        clientTestimonial.classList.remove('_active');
+      }
+    });
+  }
+});
+
+if (testimonial) {
+  const clientWrappers = document.querySelectorAll('.testimonial__client-wrapper');
+
+  clientWrappers.forEach(clientWrapper => {
+    const client = clientWrapper.querySelector('.testimonial__client');
+    const clientContent = client.querySelector('.client-testimonial__content');
+
+    document.addEventListener('click', ev => {
+      if(ev.composedPath().includes(client)) {
+        clientWrapper.classList.add('_active');
+      } else {
+        clientWrapper.classList.remove('_active');
+      }
+    })
+  });
+}
