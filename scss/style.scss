@@ -18,6 +18,22 @@
   --color-grey-linear: linear-gradient(90deg, #ffffff4d 0%, #ffffff00 100%);
 }
 
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+  border-radius: 100ch;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 100ch;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track-piece {
+  cursor: pointer;
+  border-radius: 100ch;
+  background-color: rgba($color: #ffffff00, $alpha: 0.15);
+}
+
 [class *= "__container"], .container {
   box-sizing: border-box;
   max-width: 1240px;
@@ -64,6 +80,8 @@ body {
 @import 'blocks/client-testimonial';
 @import 'blocks/item-pricing';
 @import 'blocks/started-pricing';
+@import 'blocks/pop-article';
+@import 'blocks/recent-article';
 
 //sections
 @import 'blocks/header';
@@ -77,3 +95,4 @@ body {
 @import 'blocks/testimonial';
 @import 'blocks/pricing';
 @import 'blocks/partners';
+@import 'blocks/articles';

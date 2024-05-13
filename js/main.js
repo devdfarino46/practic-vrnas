@@ -3,6 +3,7 @@ const spollerChoose = document.querySelector('.spoller-choose');
 const playerVideos = document.querySelectorAll('.player-video');
 const clientTestimonials = document.querySelectorAll('.client-testimonial');
 const navItems = document.querySelectorAll('.nav__item._rel');
+const popArticle = document.querySelector('.pop-article');
 
 const header = document.querySelector('.header');
 const testimonial = document.querySelector('.testimonial');
@@ -202,4 +203,21 @@ if (testimonial) {
       }
     })
   });
+}
+
+if (popArticle) {
+  const slider = new Swiper('.pop-article__slider', {
+    slidesPerView: 1,
+    direction: 'horizontal',
+    loop: true,
+
+    pagination: {
+      el: '.pop-article__pagination',
+      clickable: true,
+    },
+
+    autoplay: {
+      delay: 2000
+    }
+  })
 }
