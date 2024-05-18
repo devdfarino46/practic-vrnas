@@ -1,0 +1,86 @@
+.subscr {
+
+
+  &__container {
+  }
+
+  &__wrapper {
+    background: var(--color-linear);
+    border-radius: 4px;
+    padding: 38px 74px 31px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 20px;
+
+    @media (max-width: 840px) {
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      padding: 31px 13px;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.75rem, 0.924rem + 2.03vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 540px;
+
+    @media (max-width: 840px) {
+      text-align: center;
+      align-self: center;
+    }
+  }
+
+  &__form {
+    flex: 0 0 365px;
+    height: 56px;
+    padding: 3px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    background: rgba($color: #fff, $alpha: 0.07);
+    border-radius: 2px;
+    gap: 8px;
+
+    @media (max-width: 840px) {
+      flex: auto;
+    }
+  }
+
+  &__form-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  &__input {
+    font-size: 16px;
+    line-height: 28px;
+    flex: 1;
+    background: transparent;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  &__submit {
+    aspect-ratio: 1;
+    width: max-content;
+    padding: 0;
+    background: rgba($color: #fff, $alpha: 0.21);
+    transition: .3s ease;
+    border-radius: 2px;
+    height: 100%;
+    display: inline-block;
+
+    [class *= "icon-"] {
+      font-size: 13px;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: rgba($color: #fff, $alpha: 0.35);
+      }
+    }
+  }
+}

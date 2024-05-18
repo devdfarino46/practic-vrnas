@@ -34,7 +34,7 @@
   &_outline {
     border: 1px solid;
     border-image: var(--color-linear) 1;
-    background: #ffffff0f;
+    background: rgba(255, 255, 255, 0.059);
 
     &::before {
       background-image: var(--color-linear);

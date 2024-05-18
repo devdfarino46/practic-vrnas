@@ -1,5 +1,6 @@
 const cardServices = document.querySelectorAll('.card-service');
 const spollerChoose = document.querySelector('.spoller-choose');
+const videos = document.querySelectorAll('.video');
 const playerVideos = document.querySelectorAll('.player-video');
 const clientTestimonials = document.querySelectorAll('.client-testimonial');
 const navItems = document.querySelectorAll('.nav__item._rel');
@@ -93,6 +94,28 @@ if (spollerChoose) {
     });
   })
 }
+
+videos.forEach(video => {
+  if (video) {
+    const popup = video.querySelector('.video__popup');
+
+    video.addEventListener('click', ev => {
+      if (!popup.classList.contains('_visibled')) {
+        popup.classList.add('_visibled');
+        document.body.classList.add('no-scroll');
+        video.style.zIndex = 160;
+      } else {
+        const player = video.querySelector('.player-video');
+
+        if (!ev.composedPath().includes(player)) {
+          popup.classList.remove('_visibled');
+          document.body.classList.remove('no-scroll');
+          video.style.zIndex = 5;
+        }
+      }
+    });
+  }
+});
 
 playerVideos.forEach(playerVideo => {
   /** @type {HTMLVideoElement} */
