@@ -161,12 +161,9 @@
   }
 
   &__video {
-    position: absolute;
-    bottom: 0;
     right: auto;
     left: -43px;
-    width: calc(196px / 518px * 100%);
-    height: auto;
+    width: calc(196px / 399px * 100%);
     aspect-ratio: 196 / 128;
   }
 }
