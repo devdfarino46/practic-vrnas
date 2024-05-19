@@ -42,6 +42,19 @@
   min-width: 360px;
 }
 
+@mixin light() {
+  position: absolute;
+  content: '';
+  aspect-ratio: 449 / 147;
+  width: calc(449px / 272px * 100%);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url(../img/bg/light.svg) no-repeat center / 100% 100%;
+  z-index: -1;
+  filter: blur(55px);
+}
+
 body {
   background-color: #18181B;
   color: #FFF;
@@ -88,6 +101,7 @@ body {
 @import 'blocks/header';
 @import 'blocks/footer';
 @import 'blocks/hero';
+@import 'blocks/page-hero';
 @import 'blocks/advantages';
 @import 'blocks/about-us';
 @import 'blocks/service';

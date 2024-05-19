@@ -17,7 +17,7 @@
       position: relative;
       flex: 0 0 calc(518px / 1240px * 100%);
       max-width: 518px;
-      margin-left: -28px;
+      margin-left: -28px; 
       padding-bottom: 23px;
 
       @media (max-width: 860px) {
@@ -114,4 +114,59 @@
 
 		&__btn {
 		}
+}
+
+.about-page .about-us {
+  &__container {
+    align-items: flex-start;
+    flex-direction: row-reverse;
+
+    @media (max-width: 950px) {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+  }
+
+  &__image {
+    flex: 0 0 calc(399px / 1240px * 100%);
+    max-width: 399px;
+    margin-left: -28px; 
+    margin-right: 24px;
+    padding-bottom: 23px;
+
+    @media (max-width: 950px) {
+      padding-bottom: 17px;
+      align-self: flex-end;
+      margin-left: 43px;
+    }
+
+    &::before {
+      width: calc(608px / 399px * 100%);
+      left: calc(-78px / 399px * 100%);
+      bottom: calc(94px / 622px * 100%);
+      aspect-ratio: 608 / 365;
+    }
+
+    &::after {
+      width: calc(399px / 399px * 100%);
+      aspect-ratio: 399 / 496;
+      bottom: 23px;
+      left: calc(24px / 399px * 100%);
+
+      @media (max-width: 950px) {
+        left: -18px;
+        bottom: 17px;
+      }
+    }
+  }
+
+  &__video {
+    position: absolute;
+    bottom: 0;
+    right: auto;
+    left: -43px;
+    width: calc(196px / 518px * 100%);
+    height: auto;
+    aspect-ratio: 196 / 128;
+  }
 }
