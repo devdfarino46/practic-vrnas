@@ -5,6 +5,7 @@ const playerVideos = document.querySelectorAll('.player-video');
 const clientTestimonials = document.querySelectorAll('.client-testimonial');
 const navItems = document.querySelectorAll('.nav__item._rel');
 const popArticle = document.querySelector('.pop-article');
+const itemTeams = document.querySelectorAll('.item-team');
 
 const header = document.querySelector('.header');
 const testimonial = document.querySelector('.testimonial');
@@ -98,6 +99,8 @@ if (spollerChoose) {
 videos.forEach(video => {
   if (video) {
     const popup = video.querySelector('.video__popup');
+    /** @type {HTMLVideoElement} */
+    const videoElem = popup.querySelector('.player-video__video');
 
     video.addEventListener('click', ev => {
       if (!popup.classList.contains('_visibled')) {
@@ -111,6 +114,7 @@ videos.forEach(video => {
           popup.classList.remove('_visibled');
           document.body.classList.remove('no-scroll');
           video.style.zIndex = 5;
+          videoElem.currentTime = videoElem.duration;
         }
       }
     });
@@ -244,3 +248,15 @@ if (popArticle) {
     }
   })
 }
+
+itemTeams.forEach(itemTeam => {
+  if (itemTeam) {
+    document.addEventListener('click', ev => {
+      if(ev.composedPath().includes(itemTeam)) {
+        itemTeam.classList.add('_active');
+      } else {
+        itemTeam.classList.remove('_active');
+      }
+    })
+  }
+})

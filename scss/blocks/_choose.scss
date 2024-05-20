@@ -85,3 +85,16 @@
       }
 		}
 }
+
+.about-page .choose {
+
+  &__container {
+    flex-direction: row-reverse;
+
+    @media (max-width: 910px) {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+}

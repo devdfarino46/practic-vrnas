@@ -2,9 +2,13 @@
   margin-bottom: 120px;
 
 		&__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 		}
 
 		&__body {
+      align-self: stretch;
       background-color: var(--color-grey-50);
       display: flex;
       justify-content: center;
@@ -36,7 +40,7 @@
       margin-bottom: 42px;
 		}
 
-		&__title {
+		&__label {
       font-size: 20px;
       line-height: auto;
       margin-bottom: 12px;
@@ -45,4 +49,18 @@
 		&__text {
       font-size: 14px;
 		}
+}
+
+.about-page .advantages {
+  margin-bottom: 150px;
+
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    margin-bottom: clamp(2rem, 0.485rem + 3.73vw, 3.375rem);
+    max-width: 706px;
+    text-align: center;
+  }
 }
