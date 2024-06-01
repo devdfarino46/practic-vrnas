@@ -1,0 +1,83 @@
+.item-faq {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-grey-50), var(--color-grey-50)) padding-box,
+    var(--color-grey-linear) border-box;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-grey-50), var(--color-grey-50)) padding-box,
+      var(--color-linear) border-box;
+    opacity: 0;
+    transition: .3s ease;
+  }
+
+  &__label {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0px solid transparent;
+    transition: .3s ease;
+    gap: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -24px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    i {
+      font-size: 4px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--color-grey-2);
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s ease;
+    opacity: 0;
+  }
+
+  &._opened::before {
+    opacity: 1;
+  }
+
+  &._opened &__label {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba($color: #ffffff00, $alpha: 0.35);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+
+    &::before {
+      bottom: 0;
+    }
+
+    i {
+      transform: scaleY(-1);
+    }
+  }
+
+  &._opened &__text {
+    opacity: 1;
+    margin-bottom: 8px;
+    max-height: 20000px;
+  }
+}

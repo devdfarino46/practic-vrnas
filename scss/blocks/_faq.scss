@@ -1,0 +1,46 @@
+.faq {
+  margin-bottom: 150px;
+
+		&__container {
+      max-width: 830px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+		}
+
+		&__title {
+      margin-bottom: 12px;
+      text-align: center;
+		}
+
+		&__subtitle {
+      margin-bottom: clamp(0.75rem, -0.076rem + 2.03vw, 1.5rem);
+      text-align: center;
+		}
+
+		&__descr {
+      margin-bottom: clamp(1.5rem, -0.153rem + 4.07vw, 3rem);
+      text-align: center;
+		}
+
+		&__list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      &::before {
+        @include light();
+        aspect-ratio: 454 / 199;
+        width: calc(454px / 830px * 100%);
+        transform: none;
+        left: auto;
+        right: calc(-299px / 830px * 100%);
+        top: -106px;
+        filter: blur(89px);
+      }
+		}
+
+		&__item {
+		}
+}

@@ -6,6 +6,7 @@ const clientTestimonials = document.querySelectorAll('.client-testimonial');
 const navItems = document.querySelectorAll('.nav__item._rel');
 const popArticle = document.querySelector('.pop-article');
 const itemTeams = document.querySelectorAll('.item-team');
+const itemFaqs = document.querySelectorAll('.item-faq');
 
 const header = document.querySelector('.header');
 const testimonial = document.querySelector('.testimonial');
@@ -259,4 +260,12 @@ itemTeams.forEach(itemTeam => {
       }
     })
   }
+});
+
+itemFaqs.forEach(itemFaq => {
+  const btn = itemFaq.querySelector('.item-faq__label');
+
+  btn.addEventListener('click', ev => {
+    itemFaq.classList.toggle('_opened');
+  })
 })
