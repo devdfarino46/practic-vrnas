@@ -3,7 +3,7 @@ const spollerChoose = document.querySelector('.spoller-choose');
 const videos = document.querySelectorAll('.video');
 const playerVideos = document.querySelectorAll('.player-video');
 const clientTestimonials = document.querySelectorAll('.client-testimonial');
-const navItems = document.querySelectorAll('.nav__item._rel');
+const navItems = document.querySelectorAll('.nav__item');
 const popArticle = document.querySelector('.pop-article');
 const itemTeams = document.querySelectorAll('.item-team');
 const itemFaqs = document.querySelectorAll('.item-faq');
@@ -12,11 +12,12 @@ const header = document.querySelector('.header');
 const testimonial = document.querySelector('.testimonial');
 
 navItems.forEach((navItem, key) => {
-  if (navItem) {
+  if (navItem.classList.contains('_rel')) {
     const btn = navItem.querySelector('.nav__item-btn');
+    const noLink = navItem.querySelector('a[href="javascript:0;"]');
     const subItems = navItem.querySelector('.nav__subitems');
-  
-    btn.addEventListener('click', ev => {
+
+    const btnListener = (ev) => {
       navItems.forEach((navItem1, key1) => {
         if (key1 !== key) {
           navItem1.classList.remove('_opened');
@@ -31,7 +32,12 @@ navItems.forEach((navItem, key) => {
       } else {
         navItem.style.marginBottom = '0';
       }
-    });
+    }
+  
+    btn.addEventListener('click', btnListener);
+    if (noLink) {
+      noLink.addEventListener('click', btnListener);
+    }
   }
 });
 
@@ -108,8 +114,12 @@ videos.forEach(video => {
         popup.classList.add('_visibled');
         document.body.classList.add('no-scroll');
         video.style.zIndex = 160;
+        setTimeout(() => {
+          popup.style.opacity = '1';
+        }, 10);
       } else {
         const player = video.querySelector('.player-video');
+        popup.style.opacity = '0';
 
         if (!ev.composedPath().includes(player)) {
           popup.classList.remove('_visibled');

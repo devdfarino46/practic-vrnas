@@ -1,0 +1,26 @@
+.fact {
+  padding: 59px 0;
+  margin-bottom: 100px;
+
+  @media (max-width: 750px) {
+    padding: 37px 0;
+  }
+
+	&__container {
+    max-width: 953px;
+	}
+
+	&__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 36px 20px;
+    background: radial-gradient(50% 50% at 50% 50%, #343445 0%, rgba(32, 32, 41, 0) 100%);
+    
+    @media (max-width: 750px) {
+      flex-direction: column;
+    }
+	}
+
+	&__item {
+	}
+}
