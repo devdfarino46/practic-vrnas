@@ -114,12 +114,8 @@ videos.forEach(video => {
         popup.classList.add('_visibled');
         document.body.classList.add('no-scroll');
         video.style.zIndex = 160;
-        setTimeout(() => {
-          popup.style.opacity = '1';
-        }, 10);
       } else {
         const player = video.querySelector('.player-video');
-        popup.style.opacity = '0';
 
         if (!ev.composedPath().includes(player)) {
           popup.classList.remove('_visibled');

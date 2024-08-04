@@ -1,5 +1,5 @@
 node_modules/
 package-lock.json
 css/*.css
-js/*.min.js
-js/*.min.js.map
+js/main.min.js
+js/main.min.js.map
